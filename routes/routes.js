@@ -29,8 +29,6 @@ router.route('/apiCheck')
     .get(checkApi)
     .post(postApi)
 
-
-
 router
     .route("/user/cart")
     .get(authenticateMiddleware.authenticate, productController.getMyProductsPosts)
@@ -50,7 +48,6 @@ router
     .route("/products/editProduct")
     .post(authenticateMiddleware.authenticate, upload.single("updateProductImage"), productController.editProductInfo);
 router.route("/products/delete").delete(authenticateMiddleware.authenticate, productController.deleteProductPost);
-// router.route("/cars/searchCar").get(carController.searchCars);
 
 
 router.route("/products/orders").get(authenticateMiddleware.authenticate, cartController.getMyOrders)
